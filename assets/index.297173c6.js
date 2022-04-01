@@ -38,7 +38,7 @@ import{W as D,s as a,c as y,a as m,b as g,u as x,d as S,j as r,F as p,e as s,r a
     width: 100%;
     max-width: 300px;
     height: auto;
-`;var B="/assets/cryptos.c0430b0f.png";const b=y("coins/fetch",async()=>{var l,t;const e="https://min-api.cryptocompare.com/data/top/mktcapfull?limit=15&tsym=USD",n=await g.get(e);return(t=(l=n==null?void 0:n.data)==null?void 0:l.Data)==null?void 0:t.map(o=>({id:o.CoinInfo.Name,name:o.CoinInfo.FullName}))}),v=y("coins/fetchResult",async e=>{const{currency:n,crypto:i}=e,l=`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${i}&tsyms=${n}`;return(await g.get(l)).data.DISPLAY[i][n]}),H={currency:"USD",currencies:[{id:"USD",name:"United States Dollar"},{id:"MXN",name:"Mexican Peso"},{id:"EUR",name:"Euro"},{id:"GBP",name:"British Pound"}],crypto:"BTC",cryptos:[],result:{}},w=m({name:"coins",initialState:H,reducers:{setCurrency(e,n){e.currency=n.payload},setCrypto(e,n){e.crypto=n.payload},setResult(e,n){e.result=n.payload}},extraReducers:e=>{e.addCase(b.fulfilled,(n,i)=>{n.cryptos=i.payload}),e.addCase(v.fulfilled,(n,i)=>{n.result=i.payload})}}),{setResult:ee,setCrypto:O,setCurrency:M}=w.actions,C=e=>e.coins;var T=w.reducer;const G=a.form`
+`;var B="/crypto-quoting-app/assets/cryptos.c0430b0f.png";const b=y("coins/fetch",async()=>{var l,t;const e="https://min-api.cryptocompare.com/data/top/mktcapfull?limit=15&tsym=USD",n=await g.get(e);return(t=(l=n==null?void 0:n.data)==null?void 0:l.Data)==null?void 0:t.map(o=>({id:o.CoinInfo.Name,name:o.CoinInfo.FullName}))}),v=y("coins/fetchResult",async e=>{const{currency:n,crypto:i}=e,l=`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${i}&tsyms=${n}`;return(await g.get(l)).data.DISPLAY[i][n]}),H={currency:"USD",currencies:[{id:"USD",name:"United States Dollar"},{id:"MXN",name:"Mexican Peso"},{id:"EUR",name:"Euro"},{id:"GBP",name:"British Pound"}],crypto:"BTC",cryptos:[],result:{}},w=m({name:"coins",initialState:H,reducers:{setCurrency(e,n){e.currency=n.payload},setCrypto(e,n){e.crypto=n.payload},setResult(e,n){e.result=n.payload}},extraReducers:e=>{e.addCase(b.fulfilled,(n,i)=>{n.cryptos=i.payload}),e.addCase(v.fulfilled,(n,i)=>{n.result=i.payload})}}),{setResult:ee,setCrypto:O,setCurrency:M}=w.actions,C=e=>e.coins;var T=w.reducer;const G=a.form`
   display: flex;  
   flex-direction: column;
   
@@ -80,7 +80,7 @@ import{W as D,s as a,c as y,a as m,b as g,u as x,d as S,j as r,F as p,e as s,r a
     max-width: 40px;
     height: auto;
     object-fit: contain;
-`,Q=a.div`
+`,q=a.div`
     display: inline-flex;
     gap: 5px;
     `,d=a.span`
@@ -89,11 +89,11 @@ import{W as D,s as a,c as y,a as m,b as g,u as x,d as S,j as r,F as p,e as s,r a
 `,u=a.p`
     color: white;
     font-weight: bold;
-`,q=a.div`
+`,Q=a.div`
     display: grid;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: calc(6px + 2vmin);
     color: white;
-    `;function K(){const{result:e}=x(C),{PRICE:n,HIGHDAY:i,LOWDAY:l,CHANGEPCT24HOUR:t,IMAGEURL:o,LASTUPDATE:c}=e;return r(p,{children:n&&r(q,{children:s("div",{children:[s(Q,{children:[s(u,{children:["The actual price is: ",r(d,{children:n})]}),r(Y,{src:`https://cryptocompare.com/${o}`})]}),s(u,{children:["High price 24hs ",r(d,{children:i})]}),s(u,{children:["Low price 24hs ",r(d,{children:l})]}),s(u,{children:["Var % last 24hs: ",s(d,{value:Number(t),children:["%"," ",t]})]}),s(u,{children:["Last update: ",r(d,{children:c})]})]})})})}function V(){const e=S();return R.exports.useEffect(()=>{e(b())},[]),s(p,{children:[r(U,{}),s(E,{children:[s(k,{children:[s(N,{children:[r(F,{children:"Quote your Cryptocurrency Instantly"}),r(W,{})]}),r(K,{})]}),r(z,{src:B})]})]})}const X=m({name:"count",initialState:0,reducers:{increment:e=>e+1,decrement:e=>e-1}});var J=X.reducer;const Z=I({reducer:{count:J,coins:T}});L.render(r(P,{store:Z,children:r(j.StrictMode,{children:r(V,{})})}),document.getElementById("root"));
+    `;function K(){const{result:e}=x(C),{PRICE:n,HIGHDAY:i,LOWDAY:l,CHANGEPCT24HOUR:t,IMAGEURL:o,LASTUPDATE:c}=e;return r(p,{children:n&&r(Q,{children:s("div",{children:[s(q,{children:[s(u,{children:["The actual price is: ",r(d,{children:n})]}),r(Y,{src:`https://cryptocompare.com/${o}`})]}),s(u,{children:["High price 24hs ",r(d,{children:i})]}),s(u,{children:["Low price 24hs ",r(d,{children:l})]}),s(u,{children:["Var % last 24hs: ",s(d,{value:Number(t),children:["%"," ",t]})]}),s(u,{children:["Last update: ",r(d,{children:c})]})]})})})}function V(){const e=S();return R.exports.useEffect(()=>{e(b())},[]),s(p,{children:[r(U,{}),s(E,{children:[s(k,{children:[s(N,{children:[r(F,{children:"Quote your Cryptocurrency Instantly"}),r(W,{})]}),r(K,{})]}),r(z,{src:B})]})]})}const X=m({name:"count",initialState:0,reducers:{increment:e=>e+1,decrement:e=>e-1}});var J=X.reducer;const Z=I({reducer:{count:J,coins:T}});L.render(r(P,{store:Z,children:r(j.StrictMode,{children:r(V,{})})}),document.getElementById("root"));
