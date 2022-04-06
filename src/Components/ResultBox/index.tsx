@@ -2,13 +2,14 @@ import { useSelector } from "react-redux";
 import { selectCoins } from "../../features/coinsSlice";
 import { StyledImage, StyledDiv, StyledSpan, StyledParagraph, StyledContainer } from "./styles";
 import { FC } from "react";
+import Loader from 'react-ts-loaders'
 
 const ResultBox: FC = () => {
     const { result, loading } = useSelector(selectCoins)
     const { PRICE, HIGHDAY, LOWDAY, CHANGEPCT24HOUR, IMAGEURL, LASTUPDATE } = result
 
     if (loading){
-        return <h2>Loading...</h2>    
+        return <Loader type="spinner"/>   
     }
 
     return (
